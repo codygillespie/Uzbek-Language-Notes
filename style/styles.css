@@ -1,0 +1,88 @@
+/* styles.css — custom styles for Uzbek Language Notes */
+:root{
+  --brand: #0d6efd;
+}
+body{
+  background: #f8f9fa;
+  /* Calibri-like stack for a clean, narrow font */
+  font-family: Calibri, Candara, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.32;
+  color: #12202b;
+}
+
+/* reduce default spacing for top-level container */
+main.container{padding-top:.6rem;padding-bottom:.6rem}
+
+.navbar-brand{font-weight:600}
+
+/* card tweaks */
+.note-card{
+  transition: transform .12s ease, box-shadow .12s ease;
+  margin-bottom: .35rem;
+}
+.note-card:hover{transform: translateY(-4px); box-shadow: 0 6px 18px rgba(0,0,0,.06)}
+
+.note-body{white-space:pre-wrap;font-size:0.95rem}
+.footer-small{font-size:.78rem;color:#6c757d;margin:0}
+
+/* small responsive tweaks */
+@media (max-width:576px){
+  .d-md-flex{display:block!important}
+}
+
+/* Single-column container and search tweaks */
+/* Wider container so tables can use more horizontal space */
+.container{max-width:1200px}
+.search-input{max-width:100%;margin-bottom:.15rem;padding:.24rem .4rem;font-size:0.92rem}
+/* Reduce vertical padding inside accordion bodies so content sits closer */
+.accordion-body{white-space:pre-wrap;padding:.18rem .18rem;font-size:0.91rem}
+/* Compact paragraphs within accordion bodies to reduce vertical spacing */
+.accordion-body p{margin-top:0;margin-bottom:0.12rem;font-size:0.92rem}
+
+/* details/sections (replaces accordion) */
+.note-section{margin-bottom:.28rem}
+.note-summary{cursor:pointer;padding:.28rem .45rem;display:block;border-radius:6px;background:transparent;font-weight:600}
+.note-summary:hover{background:rgba(0,0,0,0.02)}
+.note-section details[open] .note-summary{background:rgba(0,0,0,0.03);border-left:3px solid var(--brand)}
+.note-content{padding:.12rem .2rem;font-size:0.92rem}
+
+/* tighten headings */
+h1.h3{font-size:1.12rem;margin-bottom:.12rem}
+
+
+/* Alphabet table — tighter, uses horizontal space */
+.alphabet-table{width:100%;border-collapse:collapse;margin-top:.25rem;table-layout:fixed;font-size:0.9rem}
+.alphabet-table th{font-weight:600;padding:.25rem .4rem;border-bottom:1px solid rgba(0,0,0,0.06);text-align:left;white-space:nowrap}
+.alphabet-table td{padding:.25rem .4rem;border-bottom:1px solid rgba(0,0,0,0.04);vertical-align:top;overflow-wrap:break-word}
+.alphabet-table th:nth-child(1), .alphabet-table td:nth-child(1){width:10%;text-align:center}
+.alphabet-table th:nth-child(2), .alphabet-table td:nth-child(2){width:25%}
+.alphabet-table th:nth-child(3), .alphabet-table td:nth-child(3){width:55%}
+.alphabet-table th:nth-child(4), .alphabet-table td:nth-child(4){width:10%;text-align:center}
+.alphabet-table td.audio-cell{padding:.2rem .35rem}
+
+/* Inert audio placeholder when audio is not linked */
+.audio-placeholder{color:#6c757d;font-style:italic;font-size:0.86rem;display:inline-block;padding:0.08rem .25rem;border-radius:0.25rem}
+.alphabet-table tbody tr:hover{background:rgba(0,0,0,0.03)}
+
+/* two-column compact layout for alphabet (no scrollbars) */
+.alphabet-grids{display:flex;gap:.35rem;align-items:flex-start}
+.alphabet-grid{flex:1;min-width:220px}
+.alphabet-grid .alphabet-table{margin-top:0}
+.alphabet-grid .alphabet-table thead th{font-weight:600;padding:.12rem .28rem}
+.alphabet-grid .alphabet-table td{padding:.12rem .28rem;font-size:0.87rem}
+/* remove max-height/overflow so tables do not show scrollbars */
+.alphabet-grid{max-height:none;overflow:visible}
+
+@media (max-width:900px){
+  .alphabet-grids{flex-direction:row;flex-wrap:wrap}
+  .alphabet-grid{flex:0 0 48%}
+}
+
+@media (max-width:576px){
+  .alphabet-grids{flex-direction:column}
+  .alphabet-table thead{display:none}
+  .alphabet-table tr{display:block;border-bottom:1px solid rgba(0,0,0,0.06);padding:.18rem 0}
+  .alphabet-table td{display:block;padding:.14rem 0}
+}
+
